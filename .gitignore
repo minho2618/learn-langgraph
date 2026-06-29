@@ -1,24 +1,87 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# 복사하여 프로젝트 루트 디렉토리의 .gitignore 파일에 저장하세요.
 
-node_modules
-dist
-dist-ssr
-*.local
+# --- Project Specific Custom Rules ---
+# RAG 데이터 디렉토리 제외
+/RAG/data/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# --- Package Manager (uv) ---
+# uv 캐시 및 로컬 설정 디렉토리
+.uv/
+# 주의: 애플리케이션 프로젝트의 경우 의존성 복구 및 일관성을 위해 
+# uv.lock 파일은 Git에 커밋하는 것이 권장되므로 제외하지 않습니다.
+
+# --- Environment Variables & Secrets ---
+# LangChain 및 LLM API 키를 포함하는 파일 (보안 필수)
+.env
+.env.local
+.env.*
+*.env
+auth.json
+secrets.json
+
+# --- Python ---
+# 바이트코드 및 캐시
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 가상 환경 (Virtual Environments)
+.venv/
+venv/
+ENV/
+env/
+
+# 패키징 및 빌드
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- LangChain / Vector Databases ---
+# 로컬 벡터 데이터베이스 및 캐시 디렉토리
+.chroma/
+.faiss/
+chroma_db/
+faiss_index/
+.langchain/
+langchain_cache/
+
+# --- Jupyter Notebook ---
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# --- OS & IDE ---
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Ehthumbs.db
+Desktop.ini
+
+# IDEs (VS Code, PyCharm)
+.vscode/
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.swp
